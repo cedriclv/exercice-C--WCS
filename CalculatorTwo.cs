@@ -4,24 +4,36 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        double result = 0;
-
-        Console.WriteLine("Enter a first number :");
-        double numberOne = Convert.ToDouble(Console.ReadLine());
-
-        Console.WriteLine("Enter a second number :");
-        double numberTwo = Convert.ToDouble(Console.ReadLine());
-
-        int operationId = -1;
-
-        while (operationId < 1 || operationId > 5)
+        string appOnGoing = "Y";
+        while (appOnGoing == "Y")
         {
-            operationId = AskOperator();
-            result = CallOperator(operationId, numberOne, numberTwo);
+            Console.WriteLine("Do you want to make a calculation ? Y/N");
+            string userOnGoingChoice = Console.ReadLine();
+            if (userOnGoingChoice == "Y")
+            {
+                double result = 0;
+
+                Console.WriteLine("Enter a first number :");
+                double numberOne = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Enter a second number :");
+                double numberTwo = Convert.ToDouble(Console.ReadLine());
+
+                int operationId = -1;
+                while (operationId < 1 || operationId > 5)
+                {
+                    operationId = AskOperator();
+                    result = CallOperator(operationId, numberOne, numberTwo);
+                }
+
+                Console.WriteLine("The result is : " + result);
+            }
+            else
+            {
+                appOnGoing = "N";
+                Console.WriteLine("The game is over");
+            }
         }
-
-        Console.WriteLine("The result is : " + result);
-
     }
 
     public static int AskOperator()
