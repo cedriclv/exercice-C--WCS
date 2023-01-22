@@ -13,6 +13,13 @@ public class Program
         Console.WriteLine("Quelle est la valeur maximale de la liste à prendre en compte pour la moyenne ?");
         int limit = Convert.ToInt32(Console.ReadLine());
         IEnumerable<int> querySelected = integers.Where(figure => figure < limit);
+        Console.WriteLine("Voici la liste");
+ 
+        foreach (int figure in querySelected)
+        {
+            Console.WriteLine("/// {0} ///",figure);
+        }
+ 
         foreach (int figure in querySelected)
         {
             sum = sum + figure;
